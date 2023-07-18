@@ -1,6 +1,5 @@
 import './App.css'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import {Container} from 'react-bootstrap'
 import Home from './components/Home/Home'
 import Header from './components/Nav/Header'
 import { createContext, useEffect, useState } from 'react'

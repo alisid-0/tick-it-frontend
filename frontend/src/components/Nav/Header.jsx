@@ -17,9 +17,10 @@ function Header(){
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto justify-content-between" style={{width:`100%`}}>
-                    <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href='/services'>Services</Nav.Link>
-                    <Nav.Link href='/about'>About Us</Nav.Link>
+                    <Nav.Link href='/venues'>Venues</Nav.Link>
+                    <Nav.Link href='/concerts'>Concerts</Nav.Link>
+                    <Nav.Link href='/art&theater'>Art & Theater</Nav.Link>
+                    <Nav.Link href='/family'>Family</Nav.Link>
                     <div style={{flexGrow: 1, display: 'flex', justifyContent: 'flex-end'}}>
                         <Button className='login-button' href='/login'>
                             {signedIn ? ('Account') : ('Log In')}
