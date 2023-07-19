@@ -3,8 +3,8 @@ import {Button, Form, InputGroup, Container} from 'react-bootstrap'
 function Home(){
 
     return(
-        <>
-            <div className='home text-light'>
+        <div>
+            <div className='home text-light' style={{boxShadow: `0vw 1vw 2vw 1vw rgba(0, 0, 0, 0.318)`}}>
                 <Container className='px-5 pt-5'>
                     <h1 style={{fontSize: `4vw`}}>Life's Too Short For Bad Seats.</h1>
                 </Container>
@@ -19,7 +19,7 @@ function Home(){
             <Container>
 
             </Container>
-        </>
+        </div>
 
     )
 }
