@@ -17,6 +17,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
+    "react-read-more-read-less": "^1.0.7",
     "react-router-dom": "^6.14.2"
   },
   "devDependencies": {
