@@ -4,6 +4,7 @@ import Home from './components/Home/Home'
 import Header from './components/Nav/Header'
 import LogInPage from './components/Login/Login'
 import SignUp from './components/Login/SignUp'
+import Venues from './components/Pages/Venues'
 import { createContext, useEffect, useState } from 'react'
 
 export const LoginContext = createContext(null)
@@ -27,6 +28,7 @@ function App() {
           <Route path='/' exact element={<Home/>}></Route>
           <Route path='/login' element={<LogInPage/>}></Route>
           <Route path='/signup' element={<SignUp/>}></Route>
+          <Route path='/venues' element={<Venues/>}></Route>
         </Routes>
       </Router>
       </LoginContext.Provider>
