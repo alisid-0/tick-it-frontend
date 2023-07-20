@@ -57,7 +57,12 @@ function Home() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <Button onClick={handleSearch}>Search</Button>
+            <Button
+            onClick={handleSearch}
+            style={{ backgroundColor: '#2A2E45', color: '#ffffff' , borderColor:'#2A2E45'}}
+          >
+            Search
+          </Button>
           </InputGroup>
           <p>Book smarter with us.</p>
         </Container>
