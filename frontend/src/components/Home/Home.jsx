@@ -97,7 +97,7 @@ function Home() {
                       <Carousel.Item key={event.event_url}>
                         <div>
                           <h4>{event.name}</h4>
-                          <img src={event.picture_link} alt="Event" style={{ maxWidth: '200px' }} />
+                          <img src={event.picture_link} alt="Event" style={{ maxWidth: '100%' }} />
                           <p>Description: {event.description}</p>
                           <p>Date: {event.date}</p>
                           <p>Start Time: {event.start_time}</p>
