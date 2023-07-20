@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button, Modal, Card } from "react-bootstrap";
 import axios from "axios";
-import VenueDetails from "./VenueDetails";
 
 function Venues() {
   const [venues, setVenues] = useState(null);
@@ -23,9 +22,7 @@ function Venues() {
     getVenues();
   }, []);
 
-  const handleVenueClick = (venue) => {
-    setSelectedVenue((prevSelectedVenue) => (prevSelectedVenue && prevSelectedVenue.id === venue.id) ? null : venue);
-  };
+  const [modalShow, setModalShow] = useState(false);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -42,7 +39,7 @@ function Venues() {
           {venues && venues.length > 0 ? (
             venues.map((venue) => (
               <Col key={venue.id}>
-                <div style={{ cursor: "pointer" }}>
+                <div>
                   <Container
                     className="my-4 p-0"
                     style={{
@@ -51,7 +48,7 @@ function Venues() {
                       boxShadow: `20px 20px 60px #bebebe, -20px -20px 30px #020F12`,
                       overflow: "hidden",
                     }}
-                    onClick={() => handleVenueClick(venue)}
+                    // onClick={() => handleVenueClick(venue)}
                   >
                     <img
                       src={venue.picture_link}
@@ -65,18 +62,64 @@ function Venues() {
                     <p>
                       {venue.state}, {venue.country}
                     </p>
+                    <Button className='mb-3'  onClick={()=> {setSelectedVenue(venue);setModalShow(true)}} >View Events</Button>
                   </Container>
                 </div>
-                {selectedVenue && selectedVenue.id === venue.id && <VenueDetails venue={selectedVenue} />}
+
               </Col>
             ))
           ) : (
             <p>No venues found.</p>
           )}
+          {selectedVenue && <EventModal show={modalShow} onHide={()=> {setSelectedVenue(null); setModalShow(false)}} venue={selectedVenue} />}
         </Row>
       </Container>
     </div>
   );
+}
+
+function EventModal({venue, ...props}){
+    return(
+        <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
+            <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                Upcoming Events for {venue.name}
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body className="grid-example">
+                <Container>
+                    {venue.events.map((event,index)=>(
+                        <Container key={index} className='my-3 pb-3' style={{borderBottom: `1px solid black`}}>
+                            <Row>
+                                <Col>
+                                    Date: {event.date}
+                                </Col>
+                            </Row>
+
+                            <Row>
+                                <Col>
+                                    From {event.start_time} to {event.end_time}
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col className='py-2'>
+                                    <img src={event.picture_link} style={{maxWidth: '100%'}}></img>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col className='py-2'>
+                                    {event.description}
+                                </Col>
+                            </Row>
+                        </Container>
+                    ))}
+                </Container>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button onClick={props.onHide}>Close</Button>
+            </Modal.Footer>
+        </Modal>
+    )
 }
 
 export default Venues;
