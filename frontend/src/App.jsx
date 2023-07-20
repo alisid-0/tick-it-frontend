@@ -6,6 +6,7 @@ import LogInPage from './components/Login/Login'
 import SignUp from './components/Login/SignUp'
 import Venues from './components/Pages/Venues'
 import Events from './components/Pages/Events'
+ 
 import { createContext, useEffect, useState } from 'react'
 
 export const LoginContext = createContext(null)
@@ -31,6 +32,7 @@ function App() {
           <Route path='/signup' element={<SignUp/>}></Route>
           <Route path='/venues' element={<Venues/>}></Route>
           <Route path='/events' element={<Events/>}></Route>
+          
         </Routes>
       </Router>
       </LoginContext.Provider>
