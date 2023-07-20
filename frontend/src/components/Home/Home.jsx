@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button, Form, InputGroup, Container, Carousel } from 'react-bootstrap';
 
+
 function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -27,10 +28,8 @@ function Home() {
       });
   };
 
-  
   return (
     <div>
-        
       <div className='home text-light' style={{ boxShadow: '0vw 1vw 2vw 1vw rgba(0, 0, 0, 0.318)' }}>
         <Container className='px-5 pt-5'>
           <h1 style={{ fontSize: '4vw', marginBottom: '1rem', textAlign: 'center', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)' }}>
@@ -63,57 +62,58 @@ function Home() {
           <p>Book smarter with us.</p>
         </Container>
       </div>
-      <Container>
-        {searchResults.length === 0 && searchQuery !== '' ? null : (
-          searchResults.map((venue) => (
-            <div
-              key={venue.venue_url}
-              style={{
-                borderRadius: '15px',
-                background: '#CFCBC9',
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-                overflow: 'hidden',
-                margin: '1rem',
-                padding: '1rem',
-              }}
-            >
-              <h2>{venue.name}</h2>
-              <p>
-                Address: {venue.address}, {venue.city}, {venue.state}, {venue.country}
-              </p>
-              <p>Capacity: {venue.capacity}</p>
-              <p>
-            {" "}
-            <a href={venue.website} target="_blank" rel="noopener noreferrer">
-             Visit Website
-            </a>
-             </p>
+      
+        <Container>
+          {searchResults.length === 0 && searchQuery !== '' ? null : (
+            searchResults.map((venue) => (
+              <div
+                key={venue.venue_url}
+                style={{
+                  borderRadius: '15px',
+                  background: '#CFCBC9',
+                  boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                  overflow: 'hidden',
+                  margin: '1rem',
+                  padding: '1rem',
+                }}
+              >
+                <h2>{venue.name}</h2>
+                <p>
+                  Address: {venue.address}, {venue.city}, {venue.state}, {venue.country}
+                </p>
+                <p>Capacity: {venue.capacity}</p>
+                <p>
+                  <a href={venue.website} target="_blank" rel="noopener noreferrer">
+                    Visit Website
+                  </a>
+                </p>
 
-              <img src={venue.picture_link} alt="Venue" style={{ maxWidth: '100%', marginBottom: '1rem' }} />
+                <img src={venue.picture_link} alt="Venue" style={{ maxWidth: '100%', marginBottom: '1rem' }} />
 
-              <h3>Events:</h3>
-              {venue.events.length > 0 ? (
-                <Carousel interval={null} style={{ padding: '0 20px', margin: '10px 0', color: 'white' }}>
-                  {venue.events.map((event) => (
-                    <Carousel.Item key={event.event_url}>
-                      <div>
-                        <h4>{event.name}</h4>
-                        <img src={event.picture_link} alt="Event" style={{ maxWidth: '200px' }} />
-                        <p>Description: {event.description}</p>
-                        <p>Date: {event.date}</p>
-                        <p>Start Time: {event.start_time}</p>
-                        <p>End Time: {event.end_time}</p>
-                      </div>
-                    </Carousel.Item>
-                  ))}
-                </Carousel>
-              ) : (
-                <p>No events found for this venue.</p>
-              )}
-            </div>
-          ))
-        )}
-      </Container>
+                <h3>Events:</h3>
+                {venue.events.length > 0 ? (
+                  <Carousel interval={null} style={{ padding: '0 20px', margin: '10px 0', color: 'white' }}>
+                    {venue.events.map((event) => (
+                      <Carousel.Item key={event.event_url}>
+                        <div>
+                          <h4>{event.name}</h4>
+                          <img src={event.picture_link} alt="Event" style={{ maxWidth: '100%' }} />
+                          <p>Description: {event.description}</p>
+                          <p>Date: {event.date}</p>
+                          <p>Start Time: {event.start_time}</p>
+                          <p>End Time: {event.end_time}</p>
+                        </div>
+                      </Carousel.Item>
+                    ))}
+                  </Carousel>
+                ) : (
+                  <p>No events found for this venue.</p>
+                )}
+              </div>
+            ))
+          )}
+        </Container>
+      
     </div>
   );
 }
