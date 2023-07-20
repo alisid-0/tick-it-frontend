@@ -77,7 +77,7 @@ function Home() {
                   padding: '1rem',
                 }}
               >
-                <h2>{venue.name}</h2>
+                <h1 style={{fontSize: `5vw`}}>{venue.name}</h1>
                 <p>
                   Address: {venue.address}, {venue.city}, {venue.state}, {venue.country}
                 </p>
@@ -88,19 +88,21 @@ function Home() {
                   </a>
                 </p>
 
-                <img src={venue.picture_link} alt="Venue" style={{ maxWidth: '100%', marginBottom: '1rem' }} />
+                <img src={venue.picture_link} alt="Venue" style={{ maxWidth: '80%', marginBottom: '1rem' }} />
 
-                <h3>Events:</h3>
+                <h3 className='mt-5s'>Events:</h3>
                 {venue.events.length > 0 ? (
                   <Carousel interval={null} style={{ padding: '0 20px', margin: '10px 0', color: 'white' }}>
                     {venue.events.map((event) => (
                       <Carousel.Item key={event.event_url} className='text-dark py-5'>
                         <div>
                           <h4>{event.name}</h4>
-                          <img src={event.picture_link} alt="Event" style={{ maxWidth: '100%' }} />
+                          <img className='mb-4'src={event.picture_link} alt="Event" style={{ maxWidth: '80%' }} />
                           <p>Date: {event.date}</p>
                           <p>Runtime: From {event.start_time} to {event.end_time}</p>
-                          <p>{event.description}</p>
+                          <Container style={{display:'flex', flexDirection: 'column', alignItems: 'center'}}>
+                            <p style={{maxWidth: '800px'}}>{event.description}</p>
+                          </Container>
                         </div>
                       </Carousel.Item>
                     ))}
