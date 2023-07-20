@@ -48,7 +48,7 @@ function Venues() {
                     style={{
                       borderRadius: `50px`,
                       background: `#e0e0e0`,
-                      boxShadow: `20px 20px 60px #bebebe, -20px -20px 60px #ffffff`,
+                      boxShadow: `20px 20px 60px #bebebe, -20px -20px 30px #020F12`,
                       overflow: "hidden",
                     }}
                     onClick={() => handleVenueClick(venue)}
