@@ -35,17 +35,17 @@ function Venues() {
   return (
     <div>
       <Container className="py-5">
-        <Row xl={3} md={2} sm={1} style={{ justifyContent: `space-evenly`, gap: `1rem`, }}>
+        <Row xl={3} md={2} sm={1} style={{ justifyContent: `space-evenly`, gap: `0`, }}>
           {venues && venues.length > 0 ? (
             venues.map((venue) => (
-              <Col key={venue.id}>
+              <Col key={venue.id} className="px-3">
                 <div>
                   <Container
                     className="my-4 p-0"
                     style={{
-                      borderRadius: `50px`,
+                      borderRadius: `40px`,
                       background: `#e0e0e0`,
-                      boxShadow: `20px 20px 60px #bebebe, -20px -20px 30px #020F12`,
+                      boxShadow: `10px 10px 60px #bebebe, -20px -20px 30px #020F12`,
                       overflow: "hidden",
                     }}
                     // onClick={() => handleVenueClick(venue)}
@@ -55,7 +55,7 @@ function Venues() {
                       style={{ width: "100%", maxHeight: `300px`, aspectRatio: "16/9" }}
                       alt="Venue"
                     />
-                    <h1 className="pt-3">{venue.name}</h1>
+                    <h2 className="pt-3">{venue.name}</h2>
                     <p>
                       {venue.address}, {venue.city}
                     </p>
