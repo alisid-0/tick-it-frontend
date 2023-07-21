@@ -93,7 +93,7 @@ function AddEventAndVenue() {
         maxWidth: '500px',
         margin: 'auto',
         paddingTop: '50px',
-        fontFamily: 'Arial, sans-serif',
+        
         color: 'white',
       }}
     >
