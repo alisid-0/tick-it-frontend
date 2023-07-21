@@ -1,14 +1,17 @@
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { LoginContext } from '../../App';
 import { useContext } from 'react';
+import Transitions from '../Transition';
 
 function Header() {
   const contextValue = useContext(LoginContext);
   const signedIn = contextValue.signedIn;
 
   return (
+  <Transitions>
     <Navbar expand="lg" className='py-3' style={{ backgroundColor: '#2c3e50', color: '#ffffff' }}>
       <Container>
+        
         <Navbar.Brand href="/" style={{ fontSize: '24px', color:'white' , fontWeight: 'bold' }}>Tick-It</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -23,8 +26,11 @@ function Header() {
             </div>
           </Nav>
         </Navbar.Collapse>
+        
       </Container>
+      
     </Navbar>
+    </Transitions>
   );
 }
 

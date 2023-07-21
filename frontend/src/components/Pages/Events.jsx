@@ -86,44 +86,45 @@ function Events() {
 
        
       {selectedEvent && (
-        <Modal
-          show={modalShow}
-          onHide={() => {
-            setSelectedEvent(null);
-            setModalShow(false);
-          }}
-          aria-labelledby="contained-modal-title-vcenter"
-        >
-          <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-vcenter">
-            <h5>{selectedEvent.name}</h5>
-
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body className="grid-modal">
-            <Container>
-              <Row>
-                <Col>Date: {selectedEvent.date}</Col>
-              </Row>
-              <Row>
-                <Col>
-                  From {selectedEvent.start_time} to {selectedEvent.end_time}
-                </Col>
-              </Row>
-              <Row>
-                <Col className="py-2">
-                  <img src={selectedEvent.picture_link} style={{ maxWidth: '100%' }} alt="Event" />
-                </Col>
-              </Row>
-              <Row>
-                <Col className="py-2">{selectedEvent.description}</Col>
-              </Row>
-            </Container>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={() => setModalShow(false)}>Close</Button>
-          </Modal.Footer>
-        </Modal>
+       <Modal
+       show={modalShow}
+       onHide={() => {
+         setSelectedEvent(null);
+         setModalShow(false);
+       }}
+       aria-labelledby="contained-modal-title-vcenter"
+     >
+       <Modal.Header closeButton>
+         <Modal.Title id="contained-modal-title-vcenter">
+           <h5>{selectedEvent.name}</h5>
+           <h5>Venue: {selectedEvent.venue_name}</h5>  
+         </Modal.Title>
+       </Modal.Header>
+       <Modal.Body className="grid-modal">
+         <Container>
+           <Row>
+             <Col>Date: {selectedEvent.date}</Col>
+           </Row>
+           <Row>
+             <Col>
+               From {selectedEvent.start_time} to {selectedEvent.end_time}
+             </Col>
+           </Row>
+           <Row>
+             <Col className="py-2">
+               <img src={selectedEvent.picture_link} style={{ maxWidth: '100%' }} alt="Event" />
+             </Col>
+           </Row>
+           <Row>
+             <Col className="py-2">{selectedEvent.description}</Col>
+           </Row>
+         </Container>
+       </Modal.Body>
+       <Modal.Footer>
+         <Button onClick={() => setModalShow(false)}>Close</Button>
+       </Modal.Footer>
+     </Modal>
+     
       )}
     </div>
   );
