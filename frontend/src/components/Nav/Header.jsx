@@ -18,7 +18,7 @@ function Header() {
         <Nav.Link href='/venues' style={{ fontSize: '18px', fontWeight: 500, color: '#ffffff', marginRight: '20px' }}>Venues</Nav.Link>
           <Nav className="me-auto justify-content-between" style={{ width: '100%' }}>
             <Nav.Link href='/events' style={{ fontSize: '18px', fontWeight: 500, color: '#ffffff', marginRight: '20px' }}>Events</Nav.Link>
-           
+            <Nav.Link href='/addEventAndVenue' style={{ fontSize: '18px', fontWeight: 500, color: '#ffffff', marginRight: '20px' }}>Add new events or venues</Nav.Link>
             <div style={{ flexGrow: 1, display: 'flex', justifyContent: 'flex-end' }}>
               <Button className='login-button' href='/login' style={{ fontSize: '16px', fontWeight: 'bold', backgroundColor: '#ffffff', color: '#2c3e50', border: 'none', borderRadius: '4px', padding: '8px 20px', cursor: 'pointer', transition: 'background-color 0.3s' }}>
                 {signedIn ? ('Account') : ('Log In')}

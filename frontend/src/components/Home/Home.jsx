@@ -69,7 +69,7 @@ function Home() {
           >
             <InputGroup className='mb-3'>
               <Form.Control
-                placeholder='Search for Venue or Event'
+                placeholder='Search for Venue'
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -152,7 +152,7 @@ function Home() {
             <p>Date: {event.date}</p>
             <p>Runtime: From {event.start_time} to {event.end_time}</p>
             <Container className='my-3'>
-              <p style={{ maxWidth: '100vmin', marginLeft:'10vmin', textAlign:'left' }}>{event.description}</p>
+              <p style={{ maxWidth: '80%' ,marginLeft:'15vmin', textAlign:'left' }}>{event.description}</p>
             </Container>
           </div>
         </Carousel.Item>
