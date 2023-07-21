@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button, Modal } from "react-bootstrap";
 import axios from "axios";
-import ReactReadMoreReadLess from 'react-read-more-read-less';
+// import ReactReadMoreReadLess from 'react-read-more-read-less';
+import Transitions from "../Transition";
 
 function Events() {
   const [events, setEvents] = useState(null);
@@ -72,6 +73,7 @@ function Events() {
 
   return (
     <div>
+      <Transitions>
       <Container className='py-5'>
         <Row xl={3} md={2} sm={1} xs={1} style={{ justifyContent: `space-evenly`, gap: `0` }}>
           {events && events.map((event, index) => (
@@ -104,11 +106,16 @@ function Events() {
                     </ReactReadMoreReadLess>
                   </Container> */}
                 </Container>
+                
               </div>
+              
             </Col>
           ))}
+          
         </Row>
+        
       </Container>
+      </Transitions>
 
 
       {selectedEvent && (
@@ -149,11 +156,12 @@ function Events() {
             </Container>
           </Modal.Body>
           <Modal.Footer >
+            <Button className="btn btn-secondary" onClick={() => setModalShow(false)}>Close</Button>
             <Button onClick={() => {
               setModalShow(false)
               setModalShow2(true)
             }}>Edit</Button>
-            {/* <Button onClick={() => setModalShow(false)}>Close</Button> */}
+            
           </Modal.Footer>
         </Modal>
       )}

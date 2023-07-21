@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Button, Modal, Card } from "react-bootstrap";
 import axios from "axios";
+import Transitions from "../Transition";
 
 function Venues() {
   const [venues, setVenues] = useState(null);
@@ -34,6 +35,7 @@ function Venues() {
 
   return (
     <div>
+      <Transitions>
       <Container className="py-5">
         <Row xl={3} md={2} sm={1} style={{ justifyContent: `space-evenly`, gap: `0`, }}>
           {venues && venues.length > 0 ? (
@@ -62,7 +64,9 @@ function Venues() {
                     <p>
                       {venue.state}, {venue.country}
                     </p>
-                    <Button className='mb-3'  onClick={()=> {setSelectedVenue(venue);setModalShow(true)}} >View Events</Button>
+                    <Button 
+            style={{ backgroundColor: '#2A2E45', color: '#ffffff' , borderColor:'#2A2E45', marginBottom:'1vmin'}}
+           onClick={()=> {setSelectedVenue(venue);setModalShow(true)}} >View Events</Button>
                   </Container>
                 </div>
 
@@ -74,6 +78,7 @@ function Venues() {
           {selectedVenue && <EventModal show={modalShow} onHide={()=> {setSelectedVenue(null); setModalShow(false)}} venue={selectedVenue} />}
         </Row>
       </Container>
+      </Transitions>
     </div>
   );
 }
