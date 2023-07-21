@@ -1,6 +1,6 @@
 # Tickit - Ticket Booking Platform
 
-![Tickit Logo](tickit-logo.png)
+
 
 Tickit is a modern ticket booking platform that allows users to discover the best venues and events for a memorable experience. With Tickit, you can search for your favorite venues or events and book your tickets in advance to secure the best seats!
 
