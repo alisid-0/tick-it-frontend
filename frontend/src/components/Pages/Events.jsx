@@ -122,12 +122,14 @@ function Events() {
         >
           <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-              <h5>{selectedEvent.name}</h5>
-
+              <h5 className="m-0 lh-base">{selectedEvent.name}</h5>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body className="grid-modal">
             <Container>
+              <Row>
+                <Col><h6>Venue: {selectedEvent.venue_name}</h6></Col>
+              </Row>
               <Row>
                 <Col>Date: {selectedEvent.date}</Col>
               </Row>
@@ -217,8 +219,8 @@ function Events() {
               </div>
               <div className="mb-3">
                 <label htmlFor="description" className="form-label">Description</label>
-                <input
-                  type="email"
+                <textarea
+                  rows={5}
                   className="form-control"
                   id="description"
                   name="description"
